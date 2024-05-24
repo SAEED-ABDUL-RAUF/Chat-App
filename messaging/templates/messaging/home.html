@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+
+{% block title %}Home{% endblock title %}
+
+
+{% block content %}
+    <h1>Welcome to Chattera</h1>
+    <div>
+        <ul>
+        {% for group in groups %}
+            <li><a href="{% url 'group' group.slug %}">{{ group.name }}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock content %}
+    
+    

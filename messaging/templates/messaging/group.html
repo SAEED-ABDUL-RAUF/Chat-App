@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+
+{% block title %}Group{% endblock title %}
+
+
+{% block content %}
+<div>
+    <h1>{{ group.name}}</h1>
+    <div id="chat-log"></div>
+    <input id="chat-message-input" type="text" size="100">
+    <button id="chat-message-submit">Send</button>
+</div>
+<div>
+
+</div>
+{{ group.slug|json_script:"groupName" }}
+
+<script src="{% static 'scripts/room.js' %}">
+
+</script>
+
+{% endblock content %}
+    
+    
