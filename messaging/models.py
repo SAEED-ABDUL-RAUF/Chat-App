@@ -6,7 +6,8 @@ from django.utils.text import slugify
 
 class Group(models.Model):
     name = models.CharField(max_length=255)
-    members = models.ManyToManyField(settings.AUTH_USER_MODEL, through='Membership')
+    members = models.ManyToManyField(settings.AUTH_USER_MODEL, through='Membership', related_name='members')
+    online = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='online_users')
     slug = models.SlugField(unique=True, null=False, default="", max_length=255)
 
     def save(self, *args, **kwargs):
@@ -23,6 +24,9 @@ class Membership(models.Model):
     date_joined = models.DateTimeField(auto_now_add=True)
     is_admin = models.BooleanField(default=False)
 
+    def __str__(self):
+        return f'{self.user.username}, member of {self.group.name}'
+
 
 class GroupMessage(models.Model):
     sender = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -31,7 +35,7 @@ class GroupMessage(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.sender} to {self.group}: {self.content[20]}'
+        return f'{self.sender} to {self.group}: {self.content}'
 
 
 class PrivateMessage(models.Model):
@@ -41,5 +45,5 @@ class PrivateMessage(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.sender} to {self.receiver}: {self.content[20]}'
+        return f'{self.sender} to {self.receiver}: {self.content}'
 

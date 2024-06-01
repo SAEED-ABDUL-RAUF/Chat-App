@@ -1,0 +1,19 @@
+The requirements for creating the app
+
+Campus-wide Communication: The app should facilitate real-time communication among students, faculty, and staff across different departments and campus locations.
+
+Group Messaging: Users should be able to create and participate in group chats based on courses, clubs, events, or other interests, with options for multimedia sharing and message search functionality.
+
+Privacy Controls: The app should offer privacy settings that allow users to control who can contact them, join their groups, and view their profile information.
+
+Integration with Campus Services: Users should be able to access university services such as academic advising, library resources, and campus events directly through the chat app via chatbots or integration with existing systems.
+
+Announcements and Alerts: The app should support announcements and alerts from university administration, departments, and student organizations, with options for users to customize their notification preferences.
+
+User Profiles: Users should have customizable profiles where they can display their academic interests, extracurricular activities, and contact information, helping facilitate networking and collaboration within the university community.
+
+Accessibility: The app should be designed to be accessible to users with disabilities, with features such as support for screen readers, high contrast modes, and alternative input methods.
+
+Security: The app should prioritize user data security and privacy, with end-to-end encryption for messages, secure authentication mechanisms, and regular security audits.
+ 
+You are to give a name to the app

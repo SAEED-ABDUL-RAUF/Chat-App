@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import GroupMessage, Group
+from .models import GroupMessage, Group, Membership
 
 # Register your models here.
 
@@ -10,3 +10,4 @@ class GroupAdmin(admin.ModelAdmin):
 
 
 admin.site.register(GroupMessage)
+admin.site.register(Membership)

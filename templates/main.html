@@ -6,15 +6,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chattera | {% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'messaging/style.css' %}">
 </head>
 <body>
-    <header>
-        <h2>Chattera</h2>
-    </header>
     
-    {% block content %}
+    {% block header %}{% endblock header %}
         
-    {% endblock content %}
-        
+    <div class="main-container">
+        {% block sidebar-left %}{% endblock sidebar-left %}
+        <main class="content-center">
+            
+            {% block content-center %}
+                
+            {% endblock content-center %}     
+        </main>
+        <aside class="sidebar-right">
+            {% block sidebar-right %}{% endblock sidebar-right %}
+
+        </aside>
+    </div>
+    
+    <div class="chatbot-icon">
+        <span>💬</span>
+    </div>
+    <script src="{% static 'messaging/scripts/home_script.js' %}"></script>
+    <script src="{% static 'messaging/scripts/room.js' %}">
+
+    </script>
 </body>
 </html>

@@ -1,0 +1,26 @@
+{% load static %}
+<header class="top-bar">
+    <div class="logo-container">
+        <img src="{% static 'messaging/imgs/logo.png' %}" alt="Chattera Logo">
+        <span>Chattera</span>
+    </div>
+    <div class="search-container">
+        <form action="" method="get">
+            <input type="search" name="q" id="query" placeholder="Search here ...">
+        </form>
+    </div>
+    <div class="top-bar-icons">
+        
+        {% if user.is_authenticated %}
+        <span class="news-notification-icon">🔔</span>
+        <div class="user-avatar">
+                {{ user.username }}
+                <img src="avatar.jpg" alt="User Avatar">
+                <div class="logout-option">Logout</div>
+        {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'login' %}">Sign Up</a>
+        {% endif %}     
+        </div>
+    </div>
+</header>

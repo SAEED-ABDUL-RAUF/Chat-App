@@ -1,0 +1,64 @@
+{% extends 'main.html' %} {% load static %} 
+
+{% block title %}Group{% endblock title %} 
+
+
+{% block header %}
+    {% include 'topbar.html' %}
+{% endblock header %}
+    
+
+{% block sidebar-left %}
+    {% include 'sidebar-left.html' %}
+{% endblock sidebar-left %}
+    
+
+{% block content-center %}
+<div class="chat-header">
+    <a href="{% url 'groups-list' %}">
+        <button class="back-button">← Back</button>
+    </a>
+    <div class="group-info">
+        <h2>{{ group.name}}</h2>
+        <p>{{ group.members.count}} Member{{ group.members.count|pluralize}}</p>
+    </div>
+    <div></div>
+</div>
+<section class="chat-window" id="chat-window">
+    {% comment %} <div class="message received">
+        <p>Hey everyone! Welcome to the group chat.</p>
+    </div>
+    <div class="message sent">
+        <p>Thanks! Happy to be here.</p>
+    </div> {% endcomment %}
+
+</section>
+<div class="message-input">
+    <input type="text" id="chat-message-input" placeholder="Type a message...">
+    <button id="chat-message-submit">Send</button>
+</div>
+
+{{ group.slug|json_script:"groupName" }} 
+{{ request.user.username|json_script:"currentUser" }} 
+
+{% endblock content-center %}
+
+{% block sidebar-right %}
+<div class="active-members">
+    <h3>Active Members</h3>
+    <ul id="active-members">
+        <!-- <li>Manaf</li>
+        <li>Majeed</li> -->
+    </ul>
+</div>
+<div class="members-list">
+    <h3>Members</h3>
+    <ul>
+        {% for member in members %}
+            <li><a href="">{{ member.username }}</a></li>
+        {% empty %}
+            <em>No group member</em>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock sidebar-right %}

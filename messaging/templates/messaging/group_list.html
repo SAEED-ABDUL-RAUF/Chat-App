@@ -15,7 +15,7 @@
     {% endblock sidebar-left %}
         
     {% block content-center %}
-    
+    <h1>Your Groups</h1>
     {% for group in groups %}
         <section class="group-card">
             <img src="{% static 'messaging/imgs/group.jpg' %}" alt="Group Image">
@@ -24,17 +24,10 @@
                 <p>Group Description</p>
                 <p>{{ group.members.count }} Member{{ group.members.count|pluralize }}</p>
                 
-                {% if group.id in user_groups %}
-                    <form action="{% url 'group-page' group.slug %}" method="POST">
-                        {% csrf_token %}
-                        <button class="join-button">View Group</button>
-                    </form>
-                {% else %}
-                    <form action="{% url 'join-group' group.id %}" method="POST">
-                        {% csrf_token %}
-                        <button class="join-button">Join</button>
-                    </form>
-                {% endif %}
+                <form action="{% url 'group-page' group.slug %}" method="POST">
+                    {% csrf_token %}
+                    <button class="join-button">View Group</button>
+                </form>
             </div>
         </section> 
     {% endfor %}
