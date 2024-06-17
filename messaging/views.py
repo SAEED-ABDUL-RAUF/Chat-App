@@ -9,7 +9,7 @@ User = get_user_model()
 # Create your views here.
 @login_required
 def home(request):
-    query = request.GET['q']
+    query = request.GET.get('q') if request.GET.get('q') != None else ''
     groups = Group.objects.filter(name__icontains=query)
     user_groups = Membership.objects.filter(user=request.user).values_list('group_id', flat=True)
     context = {'groups':groups, 'user_groups':user_groups}

@@ -16,7 +16,10 @@
         <div class="user-avatar">
                 {{ user.username }}
                 <img src="avatar.jpg" alt="User Avatar">
-                <div class="logout-option">Logout</div>
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
         {% else %}
                 <a href="{% url 'login' %}">Login</a>
                 <a href="{% url 'login' %}">Sign Up</a>

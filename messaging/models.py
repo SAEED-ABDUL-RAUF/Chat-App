@@ -5,10 +5,14 @@ from django.utils.text import slugify
 # Create your models here.
 
 class Group(models.Model):
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     members = models.ManyToManyField(settings.AUTH_USER_MODEL, through='Membership', related_name='members')
     online = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='online_users')
     slug = models.SlugField(unique=True, null=False, default="", max_length=255)
+    date_created = models.DateField(auto_now_add=True)
+    description = models.TextField(blank=True)
+    # profile_picture = models.ImageField(default='dp.png', upload_to='profiles')
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
