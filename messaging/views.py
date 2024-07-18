@@ -23,12 +23,10 @@ def groupChatPage(request, group_name):
     group = Group.objects.get(slug=group_name)
     messages = GroupMessage.objects.filter(group=group)
     members = group.members.all()
-    online_users = group.online.all()
     context = {
         "group": group,
         "members": members,
         "messages": messages,
-        "online_users": online_users,
     }
     return render(request, "messaging/group_page.html", context)
 
