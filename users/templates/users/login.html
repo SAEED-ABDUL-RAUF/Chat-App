@@ -1,17 +1,13 @@
-{% extends 'main.html' %}
+{% extends '_base.html' %}
 
-
-{% block title %}
-    Login
-{% endblock title %}
     
 
 
-{% block content-center %}
+{% block content %}
     <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Login">
     </form>
-{% endblock content-center %}
+{% endblock content %}
     

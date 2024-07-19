@@ -49,3 +49,17 @@ def groupList(request):
     groups = Group.objects.filter(members=user)
     context = {"groups": groups}
     return render(request, "messaging/group_list.html", context)
+
+
+@login_required
+def dmList(request):
+    users = CustomUser.objects.exclude(username=request.user)
+    context = {"users": users}
+    return render(request, "messaging/dm_list.html", context)
+
+
+@login_required
+def dm_chat_room(request, username):
+    user = get_object_or_404(CustomUser, username=username)
+    context = {"user": user}
+    return render(request, "messaging/dm_page.html", context)

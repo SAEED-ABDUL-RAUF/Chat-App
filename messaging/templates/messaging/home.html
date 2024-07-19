@@ -23,11 +23,13 @@
         </div>
         {% if group.id not in user_groups %}
         <div class="border border-gray-400 rounded-xl px-2 py-1">
-            {% comment %} <form action="{% url 'group-page' group.slug %}" method="POST">
-                {% csrf_token %}
-                <button class="join-button">Join</button>
-            </form> {% endcomment %}
-            <input type="submit" href="">View</input>
+            <a>
+                <form action="{% url 'group-page' group.slug %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="join-button">Join</button>
+                </form>
+            </a>
+            {% comment %} <button class="line">View</button> {% endcomment %}
         </div>
         {% endif %}
     </a>
