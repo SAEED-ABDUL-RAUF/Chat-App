@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chattera | {% block title %}{% endblock title %}</title>
+    {% comment %} <link rel="stylesheet" href="{% static 'messaging/style.css' %}"> {% endcomment %}
+    
+    <!--For new frontend-->
+    <link href="{% static 'css/output_styles.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    
+    {% block header %}{% endblock header %}
+
+    <main class="pt-24 flex bg-white w-full">
+        <section onclick="hideNavigationIfVisible()" class="min-w-full min-h-[405px] text-gray-600 pb-20">
+            
+            {% block content %}
+                
+            {% endblock content %}  
+        </section>   
+    </main>
+    
+    {% block footer %}{% endblock footer %}
+        
+
+    <script src="{% static 'js/scripts.js' %}"></script>
+    <script src="{% static 'messaging/scripts/home_script.js' %}"></script>
+    <script src="{% static 'messaging/scripts/room.js' %}">
+
+    </script>
+</body>
+</html>

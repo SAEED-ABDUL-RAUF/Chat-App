@@ -1,54 +1,66 @@
-{% extends 'main.html' %} {% load static %}
+{% extends '_base.html' %} {% load static %}
 
 
 {% block title %}Home{% endblock title %}
 
 
+{% block header %}
+    {% include 'top_bar.html' %}
+{% endblock header %}
+
+
 {% block content %}
-   
-    {% block header %}
-            {% include 'topbar.html' %}
-    {% endblock header %}
-    
-    {% block sidebar-left %}
-        {% include 'sidebar-left.html' %}
-    {% endblock sidebar-left %}
-        
-    {% block content-center %}
-    
-    {% for group in groups %}
-        <section class="group-card">
-            <img src="{% static 'messaging/imgs/group.jpg' %}" alt="Group Image">
-            <div class="group-info">
-                <h3><a href="{% url 'group-page' group.slug %}">{{ group.name }}</a></h3>
-                <p>Group Description</p>
-                <p>{{ group.members.count }} Member{{ group.members.count|pluralize }}</p>
-                
-                {% if group.id in user_groups %}
-                    <form action="{% url 'group-page' group.slug %}" method="POST">
-                        {% csrf_token %}
-                        <button class="join-button">View Group</button>
-                    </form>
-                {% else %}
-                    <form action="{% url 'join-group' group.id %}" method="POST">
-                        {% csrf_token %}
-                        <button class="join-button">Join</button>
-                    </form>
-                {% endif %}
+
+{% for group in groups %}
+    <div class="flex justify-between items-center text-xs font-medium pt-2 pb-1 shadow-sm shadow-gray-400 px-2">
+    <a href="{% url 'group-page' group.slug %}">
+        <div class="flex items-center gap-4">
+            <img src="{% static 'messaging/imgs/group.jpg' %}" class="h-10 rounded-full" alt="group_dp">
+            <div>
+                <h1 class="text-sm font-bold">{{ group.name }}</h1>
+                <p>{{group.description|truncatechars:30}}</p>
             </div>
-        </section> 
-    {% endfor %}
-        
-    {% endblock content-center %}
-        
-    {% block sidebar-right %}
-        <ul>
-            <li><a href="#">School Website</a></li>
-            <li><a href="#">School Library</a></li>
-            <li><a href="#">Student Portal</a></li>
-        </ul>
-    {% endblock sidebar-right %}
-            
+        </div>
+        {% if group.id not in user_groups %}
+        <div class="border border-gray-400 rounded-xl px-2 py-1">
+            {% comment %} <form action="{% url 'group-page' group.slug %}" method="POST">
+                {% csrf_token %}
+                <button class="join-button">Join</button>
+            </form> {% endcomment %}
+            <input type="submit" href="">View</input>
+        </div>
+        {% endif %}
+    </a>
+    </div>
+    
+{% endfor %}
+    
 {% endblock content %}
     
+    
+{% block footer %}
+    {% include 'bottom_bar.html' %}
+{% endblock footer %}
+    
+    {% comment %}     
+            <section class="group-card">
+                <img src="{% static 'messaging/imgs/group.jpg' %}" alt="Group Image">
+                <div class="group-info">
+                    <h3><a href="{% url 'group-page' group.slug %}">{{ group.name }}</a></h3>
+                    <p>Group Description</p>
+                    <p>{{ group.members.count }} Member{{ group.members.count|pluralize }}</p>
+                    
+                    {% if group.id in user_groups %}
+                        <form action="{% url 'group-page' group.slug %}" method="POST">
+                            {% csrf_token %}
+                            <button class="join-button">View Group</button>
+                        </form>
+                    {% else %}
+                        <form action="{% url 'join-group' group.id %}" method="POST">
+                            {% csrf_token %}
+                            <button class="join-button">Join</button>
+                        </form>
+                    {% endif %}
+                </div>
+            </section>  {% endcomment %}
     

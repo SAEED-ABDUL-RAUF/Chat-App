@@ -10,7 +10,10 @@ from .models import GroupMessage, Group
 @login_required
 def home(request):
     query = request.GET.get("q") if request.GET.get("q") != None else ""
-    groups = Group.objects.filter(name__icontains=query, description__icontains=query)
+    groups = Group.objects.filter(
+        Q(name__icontains=query) | Q(description__icontains=query)
+    )
+    print(groups)
     user = CustomUser.objects.get(username=request.user)
     user_groups = user.groups_members.all().values_list("id", flat=True)
     context = {"groups": groups, "user_groups": user_groups}
