@@ -21,3 +21,11 @@ function hideNavigationIfVisible() {
   }
 }
 
+//
+let typeArea = document.getElementById('typeArea');
+ onload = () => {
+   let Message = document.getElementById('message');
+  if (Message.value > 10) {
+    typeArea.style.height = '70px';
+  }
+}
