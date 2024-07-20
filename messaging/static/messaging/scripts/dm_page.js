@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const groupName = JSON.parse(document.getElementById('groupName').textContent);
+    const other_user = JSON.parse(document.getElementById('otherUser').textContent);
+    console.log(other_user)
     const currentUser = JSON.parse(document.getElementById('currentUser').textContent);
-    const activeMembersList = document.getElementById('active-members');
+    console.log(currentUser)
     const chatWindow = document.getElementById('chat-window');
 
-    const chatSocket = new WebSocket(`ws://${window.location.host}/ws/group/${groupName}/`)
+    const chatSocket = new WebSocket(`ws://${window.location.host}/ws/dm/@${other_user}/`)
+
     chatSocket.onopen = function (e) {
         console.log('Connect Sucessfully.')
     }
@@ -29,33 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(data);
 
         switch (data.type) {
-            case 'online_list':
-                // Get the list of current active members
-                // const activeAlready = new Set([...activeMembersList.querySelectorAll('li')].map(li => li.textContent));
-
-                // Iterate over the online users
-                // data.onlineUsers.forEach(user => {
-                    // If the user is not already in the active members list, add them
-                    // if (!activeAlready.has(user)) {
-                        // let listItem = document.createElement('li');
-                        // listItem.textContent = user;
-                        // activeMembersList.appendChild(listItem);
-                        // activeAlready.add(user); // Update the set with the new user
-                    // }
-                    // else {
-                    //     activeMembersList.removeChild(li)
-                    // }
-                // });
-                break;
-
-            case 'chat_message':
+            case 'dm_chat_message':
                 displayMessage(currentUser, data.user, data.message)
-
-            case 'previous_messages':
-                data.messages.forEach(msg => {
-                    displayMessage(currentUser, msg.username, msg.content)
-                });
-                break;
             default:
                 break;
         }

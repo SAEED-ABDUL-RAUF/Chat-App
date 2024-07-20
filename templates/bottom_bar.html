@@ -1,0 +1,21 @@
+<footer onclick="hideNavigationIfVisible()" class="text-center flex p-2 justify-between fixed bottom-0 w-full bg-red-800 font-normal text-yellow-100 z-40">
+    <a href="{% url 'home' %}" id="home_nav" class="text-white font-semibold">
+        <i class="fa-solid fa-house"></i>
+        <h1>Home</h1>
+    </a>
+    <a href="{% url 'dm-list' %}" id="home_nav">
+        <i class="fa-solid fa-message"></i>
+        <h1>DMs</h1>
+    </a>
+    <a href="{% url 'group-list' %}" id="group_nav">
+      <i class="fa-solid fa-people-group"></i>
+      <h2>Groups</h2>
+    </a>
+    <a href="">
+        <i class="fa-solid fa-user text-xl"></i>
+        <h1>Profile</h1>
+    </a>
+    <a href="" class="absolute bottom-20 right-2 mx-1 bg-red-800 px-4 py-3 z-40 rounded-lg text-white">
+        <i class="fa-solid fa-plus"></i>
+    </a>
+</footer>

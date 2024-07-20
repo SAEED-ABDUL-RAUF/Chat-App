@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.search_bar {
+  @apply bg-red-700 h-auto p-1 my-2 rounded-lg text-white hover:text-slate-400;
+}
+
+.home_navs a {
+  @apply pb-2 text-center block;
+}

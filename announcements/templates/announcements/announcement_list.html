@@ -1,0 +1,37 @@
+{% extends '_base.html' %} {% load static %}
+
+
+{% block title %}Announcements{% endblock title %}
+
+
+{% block header %}
+    {% include 'top_bar.html' %}
+{% endblock header %}
+
+
+{% block content %}
+
+{% for announcement in announcements %}
+    <a href="">
+        <div onclick="postViewFull ()" id="postView" class="shadow-sm shadow-gray-400 h-28 overflow-hidden">
+            <div class="text-xs font-medium pt-2 px-2">
+                <div class="flex items-center gap-4">
+                <img src="images/profile.webp" class="h-8 rounded-full">
+                <div>
+                    <h1 class="text-sm text-red-700 font-bold">Post Title</h1>
+                    <p class="text-xs">Name of sender</p>
+                </div>
+                </div>
+            </div>
+            <p class="px-2 pt-1 text-sm text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae beatae modi saepe cupiditate esse cumque at animi commodi, eaque doloribus!</p>
+        </div>
+    </a>
+    
+{% endfor %}
+    
+{% endblock content %}
+    
+    
+{% block footer %}
+    {% include 'bottom_bar.html' %}
+{% endblock footer %}
