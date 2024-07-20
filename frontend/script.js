@@ -20,12 +20,3 @@ function hideNavigationIfVisible() {
       navigations.style.top = '-224px';
   }
 }
-
-//
-let typeArea = document.getElementById('typeArea');
- onload = () => {
-   let Message = document.getElementById('message');
-  if (Message.value > 10) {
-    typeArea.style.height = '70px';
-  }
-}
