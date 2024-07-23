@@ -9,3 +9,7 @@
 .home_navs a{
   @apply pb-2 text-center block;
 }
+
+#sec_navigations a{
+  @apply flex flex-col;
+}

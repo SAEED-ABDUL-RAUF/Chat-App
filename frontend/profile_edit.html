@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>chattera</title>
+  <link href="./output.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="min-h-svh">
+    <header class="bg-red-800 fixed w-full z-40 top-0  px-2 py-3">
+          <div class="flex items-center gap-3 text-white text-lg font-normal">
+                <div>
+                    <a href="profile_page.html"><i class="fa-solid fa-arrow-left"></i></a>
+                </div>
+                <a href="" class="text-xl">Profile</a>
+          </div>
+    </header>
+    <main class="pt-14 flex bg-white w-full">
+          <section onclick="hideNavigationIfVisible()" class="min-w-full min-h-screen text-gray-800 px-2">
+                  <div class="relative h-40 w-40 mx-auto mt-12 mb-9">
+                      <img src="images/profile.webp" class="object-fit h-40 rounded-full">
+                  </div>
+                  <div class="mt-2">
+                      <label for="name" class="font-semibold text-red-800">Change name*<input type="text" class="w-full bg-slate-100 h-12 rounded-xl outline-none border border-gray-400 focus:border focus:border-red-300 text-gray-600 p-2 mt-1" placeholder="Type name..." id="name"></label>
+                  </div>
+                  <div class="mt-2">
+                      <label for="name" class="font-semibold text-red-800">Change bio*<input type="text" class="w-full bg-slate-100 h-12 rounded-xl outline-none border border-gray-400 focus:border focus:border-red-300 text-gray-600 p-2 mt-1" placeholder="Type name..." id="name"></label>
+                  </div>
+                  <div class="mt-2">
+                      <label for="name" class="font-semibold text-red-800">Change email*<input type="email" class="w-full bg-slate-100 h-12 rounded-xl outline-none border border-gray-400 focus:border focus:border-red-300 text-gray-600 p-2 mt-1" placeholder="Type email..." id="name"></label>
+                  </div>
+                  <div class="text-white pt-3 float-right">
+                      <button class="bg-red-800 w-20 h-12 rounded-xl">Cancel</button>
+                      <button class="bg-green-800 w-20 h-12 rounded-xl">Save</button>
+                  </div>
+          </section>
+    </main>
+<!--JavaScript is below-->
+    <script src="script.js"></script>
+</body>
+</html>

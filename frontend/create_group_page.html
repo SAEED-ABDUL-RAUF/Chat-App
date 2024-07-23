@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>chattera</title>
+  <link href="./output.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="min-h-svh">
+    <header class="bg-red-800 fixed w-full z-40 top-0  px-2 py-3  text-white flex items-center justify-between">
+          <div class="flex items-center gap-3 text-lg font-normal">
+                <div>
+                    <a href="home_page.html"><i class="fa-solid fa-arrow-left"></i></a>
+                </div>
+                <a href="" class="text-xl">Info</a>
+          </div>
+          <button>
+                <i class="fa-solid fa-floppy-disk text-2xl"></i>
+          </button>
+    </header>
+    <main class="pt-14 flex bg-white w-full min-h-full">
+          <section class="min-w-full min-h-screen text-gray-800">
+                  <div class="relative h-40 w-40 mx-auto mt-8 mb-5">
+                      <img src="images/profile.webp" class="object-fit h-40 rounded-full">
+                      <button class="bg-red-800 py-2 px-3 w-max rounded-full absolute  bottom-2 right-1">
+                        <i class="fa-solid fa-camera-retro text-white"></i>
+                      </button>
+                  </div>
+                  <div class="flex p-4 gap-3 w-4/5 mx-auto">
+                        <div class="pt-1">
+                          <i class="fa-regular fa-user text-red-800"></i>
+                        </div>
+                        <div class="flex">
+                          <div class="text-xs w-full">
+                            <label for="name" class="text-sm">Profile Name
+                              <input type="text" max="30" autocomplete="off" id="name" class="block w-full border p-2 border-gray-500 bg-gray-300 rounded-lg outline-none h-8 focus:border-red-300">
+                            </label>
+                            <h3>This name will be visible to your Group members</h3>
+                          </div>
+                        </div>
+                  </div>
+                  <div class="flex p-4 gap-3 w-4/5 mx-auto">
+                        <div class="pt-1">
+                          <i class="fa-solid fa-circle-info text-red-800"></i>
+                        </div>
+                          <div class="text-xs w-full">
+                            <label for="name" class="text-sm">Bio
+                              <input type="text" max="30" autocomplete="off" id="name" class="block w-full border p-2 border-gray-500 bg-gray-300 rounded-lg outline-none h-8 focus:border-red-300">
+                            </label>
+                        </div>
+                  </div>
+                  <div class="flex p-4 gap-3 w-4/5 mx-auto">
+                        <div class="pt-1">
+                          <i class="fa-solid fa-envelope text-red-800"></i>
+                        </div>
+                          <div class="text-xs w-full">
+                            <label for="name" class="text-sm">Description
+                              <input type="text" max="100" autocomplete="off" id="name" class="block w-full border p-2 border-gray-500 bg-gray-300 rounded-lg outline-none h-8 focus:border-red-300">
+                            </label>
+                        </div>
+                  </div>
+          </section>
+    </main>
+<!--JavaScript is below-->
+    <script src="script.js"></script>
+</body>
+</html>
